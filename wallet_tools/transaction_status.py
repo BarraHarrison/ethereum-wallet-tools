@@ -14,5 +14,7 @@ def check_transaction_status(tx_hash: str) -> str:
         else:
             return "Transaction Failed"
     except Exception as e:
-        pass
+        if "not found" in str(e).lower():
+            return "Pending"
+        return f"Error checking transaction: {e}"
 
