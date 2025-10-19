@@ -1,8 +1,10 @@
-from wallet_tools.balance_checker import get_balance
-from wallet_tools.utils import get_account
+from wallet_tools.utils import get_account, get_web3
 
 if __name__ == "__main__":
+    w3 = get_web3()
     address, _ = get_account()
-    balance = get_balance(address)
-    print(f"Address: {address}")
-    print(f"Balance: {balance} ETH")
+    balance_wei = w3.eth.get_balance(address)
+    balance_eth = w3.from_wei(balance_wei, "ether")
+
+    print(f"Sender address (from .env): {address}")
+    print(f"Balance: {balance_eth} ETH")
