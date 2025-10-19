@@ -1,2 +1,8 @@
 venv/
 .env
+# Hardhat / local blockchain on my MacOS
+local_chain/node_modules/
+local_chain/artifacts/
+local_chain/cache/
+local_chain/.env
+
