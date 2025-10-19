@@ -16,8 +16,8 @@ def send_eth(to_address: str, amount_eth: float) -> str:
         "to": Web3.to_checksum_address(to_address),
         "value": amount_wei,
         "gas": 21000,
-        "gasPrice": w3.to_wei("20", "gwei"),
-        "chainId": 11155111,
+        "gasPrice": gas_price,
+        "chainId": chain_id,
     }
 
     signed_tx = w3.eth.account.sign_transaction(tx, private_key)
