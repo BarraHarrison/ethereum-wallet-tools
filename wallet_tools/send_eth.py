@@ -9,6 +9,7 @@ def send_eth(to_address: str, amount_eth: float) -> str:
     nonce = w3.eth.get_transaction_count(sender_address)
 
     gas_price = w3.eth.gas_price
+    chain_id = w3.eth.chain_id
 
     tx = {
         "nonce": nonce,
