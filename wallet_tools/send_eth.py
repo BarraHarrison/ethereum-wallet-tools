@@ -7,6 +7,9 @@ def send_eth(to_address: str, amount_eth: float) -> str:
     amount_wei = w3.to_wei(amount_eth, "ether")
 
     nonce = w3.eth.get_transaction_count(sender_address)
+
+    gas_price = w3.eth.gas_price
+
     tx = {
         "nonce": nonce,
         "to": Web3.to_checksum_address(to_address),
